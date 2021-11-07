@@ -1,3 +1,5 @@
+import { action } from 'typesafe-actions'
+
 import {GetStatOption} from './types';
 
 export const GET_STAT_REQUEST = '[Request] Get State'
@@ -19,6 +21,9 @@ export const getStatSuccess = (stat: GetStatOption) =>
   })
 
 export type getStatRequestAction = ReturnType<typeof getStatRequest>
+export type getStatSuccessAction = ReturnType<typeof getStatSuccess>
+export type getStatFailureAction = ReturnType<typeof getStatFailure>
+
 
 
 

@@ -1,33 +1,37 @@
+import { takeEvery, call, put} from 'redux-saga/effects'
 import {
   GET_STAT_REQUEST,
-  getStatRequestAction,
-  getStatSuccess
+  
+//  getStatRequestAction,
+  getStatSuccess,
+  getStatFailure,
 } from './actions'
 
 import {get_stat} from './api'
+import { AwaitFn } from '../types'
 
 export function* dashboardSaga() {
   yield takeEvery(GET_STAT_REQUEST, handleGetStat)
 }
 
-function* handleGetStat(action:getStatRequestAction){
+function* handleGetStat(){
   try {
-    const [
+    const {
       tvolumn,
-      tsales,
+      tsale,
       aprice
-    ]: AwaitFn<typeof get_stat> = yield call(get_stat)
+    }: AwaitFn<typeof get_stat> = yield call(get_stat)
 
     yield put(
       getStatSuccess(
         {
-          tvolumn,
-          tsale,
-          aprice
+          total_volumn:tvolumn,
+          total_sale:tsale,
+          average_price:aprice
         }
       )
     )
-  }catch (error){
-      yield put(fetchNFTsFailure(error.message))
+  } catch (error){
+      yield put(getStatFailure(error.message))
   }
 }

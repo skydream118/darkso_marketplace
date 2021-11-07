@@ -6,7 +6,7 @@ import { createStorageMiddleware } from 'decentraland-dapps/dist/modules/storage
 import { storageReducerWrapper } from 'decentraland-dapps/dist/modules/storage/reducer'
 import { createTransactionMiddleware } from 'decentraland-dapps/dist/modules/transaction/middleware'
 import { createAnalyticsMiddleware } from 'decentraland-dapps/dist/modules/analytics/middleware'
-import { CLEAR_TRANSACTIONS } from 'decentraland-dapps/dist/modules/transaction/actions'
+//import { CLEAR_TRANSACTIONS } from 'decentraland-dapps/dist/modules/transaction/actions'
 
 import { createRootReducer, RootState } from './reducer'
 import { rootSaga } from './sagas'
@@ -21,7 +21,7 @@ export function initStore() {
     isDevelopment && anyWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? anyWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           stateSanitizer: (state: RootState) => {
-            const { tile, proximity, ...sanitized } = { ...state }
+            const { ...sanitized } = { ...state }
             return sanitized
           }
         })

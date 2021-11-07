@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 //import { ScrollToTop } from './components/ScrollToTop'
 import WalletProvider from 'decentraland-dapps/dist/providers/WalletProvider'
-import ToastProvider from 'decentraland-dapps/dist/providers/ToastProvider'
+//import ToastProvider from 'decentraland-dapps/dist/providers/ToastProvider'
 
 //import './modules/analytics/track'
 //import './modules/analytics/rollbar'
@@ -25,7 +25,7 @@ async function main() {
       {/*<ToastProvider>*/}
           <WalletProvider>
             <ConnectedRouter history={history}>
-  {/*            <ScrollToTop /*/}>
+  
               <Routes />
             </ConnectedRouter>
           </WalletProvider>

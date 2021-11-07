@@ -10,7 +10,7 @@ import {
 } from '../../modules/dashboard/selectors'
 
 
-import { MapStateProps, MapDispatchProps, MapDispatch } from './HomePage.types'
+import { MapStateProps, MapDispatchProps, MapDispatch } from './DashboardPage.types'
 
 import DashboardPage from './DashboardPage'
 

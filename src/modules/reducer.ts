@@ -15,10 +15,9 @@ export const createRootReducer = (history: History) =>
     authorization,
     profile,
     storage,
-    toastr,
+    toast,
     transaction,
     wallet,
-
     dashboard,
     router: connectRouter(history)
   })

@@ -3,9 +3,11 @@ import {
   GET_STAT_REQUEST,
   GET_STAT_SUCCESS,
   GET_STAT_FAILURE,
-  getStatRequest,
-  getStatSuccess,
-  getStatFailure
+  getStatRequestAction,
+  getStatSuccessAction,
+  getStatFailureAction
+  // getStatSuccess,
+  // getStatFailure
 } from './actions'
 // import {
 //   FetchNFTsSuccessAction,
@@ -35,10 +37,13 @@ const INITIAL_STATE: DashboardUIState = {
   error: null 
 }
 
-type UIReducerAction = getStatRequest  //| FetchNFTsSuccessAction
+type UIReducerAction = 
+  |getStatRequestAction
+  |getStatSuccessAction
+  |getStatFailureAction
 
 export function dashboardReducer(
-  state: HomepageUIState = INITIAL_STATE,
+  state: DashboardUIState = INITIAL_STATE,
   action: UIReducerAction
 ) {
   switch (action.type) {
@@ -49,12 +54,12 @@ export function dashboardReducer(
       }
     }
     case GET_STAT_SUCCESS: {
-      const {tvolumn, tsale,aprice} = action.payload
+      const { total_volumn, total_sale,average_price } = action.payload.stat
       return {
         ...state,
-        total_sale: tvolumn,
-        total_volumn: tsale,
-        average_price: aprice,
+        total_sale: total_sale,
+        total_volumn: total_volumn,
+        average_price: average_price,
         loading: false
       }
     }

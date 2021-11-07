@@ -3,25 +3,22 @@ import { CallHistoryMethodAction } from 'connected-react-router'
 import {
   getHomepage,
   getHomepageLoading
-} from '../../modules/ui/asset/homepage/selectors'
+} from '../../modules/dashboard/selectors'
 
-import {
-  fetchAssetsFromRoute,
-  FetchAssetsFromRouteAction
-} from '../../modules/routing/actions'
+import { getStatRequest, getStatRequestAction } from '../../modules/dashboard/actions'
 
 export type Props = {
   homepage: ReturnType<typeof getHomepage>
   homepageLoading: ReturnType<typeof getHomepageLoading>
   onNavigate: (path: string) => void
-  onFetchAssetsFromRoute: typeof fetchAssetsFromRoute
+  onGetDashInfo: typeof getStatRequest
 }
 
 export type MapStateProps = Pick<Props, 'homepage' | 'homepageLoading'>
 export type MapDispatchProps = Pick<
   Props,
-  'onNavigate' | 'onFetchAssetsFromRoute'
+  'onNavigate' | 'onGetDashInfo'
 >
 export type MapDispatch = Dispatch<
-  CallHistoryMethodAction | FetchAssetsFromRouteAction
+  CallHistoryMethodAction | getStatRequestAction
 >
