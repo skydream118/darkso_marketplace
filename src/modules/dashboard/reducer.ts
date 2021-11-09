@@ -3,29 +3,31 @@ import {
   GET_STAT_REQUEST,
   GET_STAT_SUCCESS,
   GET_STAT_FAILURE,
+  GET_RecentNFTs_REQUEST,
+  GET_RecentNFTs_SUCCESS,
+  GET_RecentNFTs_FAILURE,
   getStatRequestAction,
   getStatSuccessAction,
-  getStatFailureAction
-  // getStatSuccess,
-  // getStatFailure
+  getStatFailureAction,
+  getNFTsRequestAction,
+  getNFTsSuccessAction,
+  getNFTsFailureAction
 } from './actions'
-// import {
-//   FetchNFTsSuccessAction,
-//   FETCH_NFTS_SUCCESS
-// } from '../nft/actions'
+
+import {
+  NFT
+} from './types'
 
 
 export type DashboardUIState = {
-  current_list: string[]
-  current_saled: string[]
+  current_list: NFT[]
+  current_saled: NFT[]
   total_sale: number
   total_volumn: number
   average_price: number
   loading: boolean
   error: string|null
 }
-
-
 
 const INITIAL_STATE: DashboardUIState = {
   current_list: [],
@@ -41,6 +43,9 @@ type UIReducerAction =
   |getStatRequestAction
   |getStatSuccessAction
   |getStatFailureAction
+  |getNFTsRequestAction
+  |getNFTsSuccessAction
+  |getNFTsFailureAction
 
 export function dashboardReducer(
   state: DashboardUIState = INITIAL_STATE,
@@ -50,7 +55,7 @@ export function dashboardReducer(
     case GET_STAT_REQUEST: {
       return {
         ...state,
-        loading: true
+    //    loading: true
       }
     }
     case GET_STAT_SUCCESS: {
@@ -60,37 +65,38 @@ export function dashboardReducer(
         total_sale: total_sale,
         total_volumn: total_volumn,
         average_price: average_price,
-        loading: false
+    //    loading: false
       }
     }
     case GET_STAT_FAILURE: {
      return {
         ...state,
-        loading: true,
+    //    loading: true,
         error: action.payload.error
       } 
     }
-    // case FETCH_NFTS_SUCCESS: {
-    //   const { nfts, options } = action.payload
-    //   const nftIds = nfts.map(nft => nft.id)
+    case GET_RecentNFTs_REQUEST: {
+      return {
+        ...state,
+        loading : true
+      }
+    } 
+    case GET_RecentNFTs_SUCCESS: {
+      return {
+        ...state,
+        current_list: action.payload.list,
+        current_saled : action.payload.sale,
+        loadng: false
+      }
+    }
+    case GET_RecentNFTs_FAILURE: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error
+      }
+    }
 
-    //   switch (options.view) {
-    //     case View.HOME_WEARABLES: {
-    //       return {
-    //         ...state,
-    //         [View.HOME_WEARABLES]: nftIds
-    //       }
-    //     }
-    //     case View.HOME_LAND: {
-    //       return {
-    //         ...state,
-    //         [View.HOME_LAND]: nftIds
-    //       }
-    //     }
-    //     default:
-    //       return state
-    //   }
-    // }
     default:
       return state
   }

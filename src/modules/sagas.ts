@@ -12,7 +12,7 @@ import { dashboardSaga } from './dashboard/sagas'
 // import { routingSaga } from './routing/sagas'
 // import { tileSaga } from './tile/sagas'
 // import { toastSaga } from './toast/sagas'
-// import { translationSaga } from './translation/sagas'
+import { translationSaga } from './translation/sagas'
 // import { uiSaga } from './ui/sagas'
 // import { walletSaga } from './wallet/sagas'
 // import { itemSaga } from './item/sagas'
@@ -28,7 +28,8 @@ export function* rootSaga() {
     profileSaga(),
     transactionSaga(),
     authorizationSaga(),
-    dashboardSaga()
+    dashboardSaga(),
+    translationSaga()
     //walletSaga()
   ])
 }

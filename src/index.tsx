@@ -3,7 +3,11 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 //import { ScrollToTop } from './components/ScrollToTop'
 import WalletProvider from 'decentraland-dapps/dist/providers/WalletProvider'
+import TranslationProvider from 'decentraland-dapps/dist/providers/TranslationProvider'
+
 //import ToastProvider from 'decentraland-dapps/dist/providers/ToastProvider'
+
+import * as locales from './modules/translation/locales'
 
 //import './modules/analytics/track'
 //import './modules/analytics/rollbar'
@@ -22,6 +26,8 @@ async function main() {
 
   const component = (
     <Provider store={initStore()}>
+      <TranslationProvider locales={Object.keys(locales)}>
+      
       {/*<ToastProvider>*/}
           <WalletProvider>
             <ConnectedRouter history={history}>
@@ -30,7 +36,7 @@ async function main() {
             </ConnectedRouter>
           </WalletProvider>
       {/*</ToastProvider>*/}
-
+      </TranslationProvider>
     </Provider>
   )
 

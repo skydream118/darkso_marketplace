@@ -1,0 +1,35 @@
+{
+  "global": {
+  
+  },
+  "nav": {
+    "dashboard" : "DASHBOARD",
+    "marketplace" : "MARKETPLACE",
+    "training" : "TRAINING",
+    "packs" : "PACKS",
+    "account" : "MY ACCOUNT",
+    "login" : "Login"
+  },
+  "dash_page": {
+    "list": "Newest list",
+    "sale" : "Latest tokens",
+    "view" : "view all"
+  },
+  "asset": {
+    "Sarah": "Sarah",
+    "Kaylan": "Kaylan",
+    "Valkyria": "Valkyria",
+    "Nox": "Nox",
+    "rarity" : "Rarity",
+    "Aurora": "Aurora",
+    "defense": "Defense",
+    "strength": "Strength",
+    "token_type": "Token Type",
+    "hero": "Hero",
+    "train":"Training",
+    "discipline": "Discipline",
+    "common": "Common",
+    "rare": "Rare",
+    "legendary": "Legendary"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "global": {
+  
+  },
+  "nav": {
+    "dashboard" : "DASHBOARD",
+    "marketplace" : "MARKETPLACE",
+    "training" : "TRAINING",
+    "packs" : "PACKS",
+    "account" : "MY ACCOUNT",
+    "login" : "Login"
+  },
+  "dash_page": {
+    "list": "Newest list",
+    "sale" : "Latest tokens",
+    "view" : "view all"
+  }
+}

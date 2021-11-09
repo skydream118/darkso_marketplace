@@ -1,8 +1,14 @@
-
+import { NFT } from './types'
+import recent_nfts from '../../demo/recent_nft.json';
 export type STATResult = {
   tvolumn:number
   tsale:number
   aprice:number
+}
+
+export type RecentNFTsResult = {
+  sales:NFT[]
+  list: NFT[]
 }
 
 export const get_stat = async (): Promise<STATResult> => {
@@ -13,5 +19,10 @@ export const get_stat = async (): Promise<STATResult> => {
 	// result.tsale = 50
 	// result.aprice = 300
 	return result;
+}
+
+export const get_recent_nfts = async (): Promise<RecentNFTsResult> => {
+  var result: RecentNFTsResult = {list : recent_nfts.recent_list, sales : recent_nfts.recent_sale};
+  return result;
 }
 

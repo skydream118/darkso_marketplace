@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 
 import { RootState } from '../../modules/reducer'
-import { getStatRequest } from '../../modules/dashboard/actions'
+import { getStatRequest, getRecentNFTsRequest } from '../../modules/dashboard/actions'
 
 import {
   getHomepage,
@@ -21,7 +21,8 @@ const mapState = (state: RootState): MapStateProps => ({
 
 const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({
   onNavigate: path => dispatch(push(path)),
-  onGetDashInfo: () => dispatch(getStatRequest())
+  onGetDashInfo: () => dispatch(getStatRequest()),
+  onGetRecentNFT: () => dispatch(getRecentNFTsRequest())
 })
 
 export default connect(mapState, mapDispatch)(DashboardPage)

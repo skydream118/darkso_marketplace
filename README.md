@@ -36,3 +36,4 @@ If you want to regenerate the contract typings in `webapp/src/contract` do the f
 ```
 npx web3x-codegen
 ```
+git push https://github.com/Panda-ManR/darkso_marketplace.git

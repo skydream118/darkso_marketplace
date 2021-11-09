@@ -15,16 +15,6 @@ import { isDevelopment } from '../lib/environment'
 export const history = require('history').createBrowserHistory()
 
 export function initStore() {
-
-    // const sagaMiddleware = createSagasMiddleware()
-    // const rootReducer = storageReducerWrapper(createRootReducer(history))
-    // const store = createStore(
-    //     rootReducer,
-    //     applyMiddleware(sagaMiddleware)
-    // )
-    // sagaMiddleware.run(rootSaga)
-    // return store
-
   const anyWindow = window as any
 
   const composeEnhancers =
