@@ -28,8 +28,8 @@ const AssetImage = (props: Props) => {
     >
       <img
         alt={t(`asset.${asset.name}`)}
-        className="image"
-        src={getAssetImage(asset.name)}
+        className={`image ${asset.name}`}
+        //src={getAssetImage(asset.name)}
       />
     </div>
   )

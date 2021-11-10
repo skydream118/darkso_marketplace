@@ -7,12 +7,15 @@ import {
 
 import { getStatRequest, getRecentNFTsRequest, getStatRequestAction, getNFTsRequestAction } from '../../modules/dashboard/actions'
 
+//import { setActiveTab,setActiveTabAction }from '../../modules/routing/navigation/actions'
+
 export type Props = {
   homepage: ReturnType<typeof getHomepage>
   homepageLoading: ReturnType<typeof getHomepageLoading>
   onNavigate: (path: string) => void
   onGetDashInfo: typeof getStatRequest
   onGetRecentNFT: typeof getRecentNFTsRequest
+//  onActiveTab: typeof setActiveTab
 }
 
 export type MapStateProps = Pick<Props, 'homepage' | 'homepageLoading'>

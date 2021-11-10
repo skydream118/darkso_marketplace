@@ -9,7 +9,6 @@ import {
   getHomepageLoading
 } from '../../modules/dashboard/selectors'
 
-
 import { MapStateProps, MapDispatchProps, MapDispatch } from './DashboardPage.types'
 
 import DashboardPage from './DashboardPage'
@@ -22,7 +21,7 @@ const mapState = (state: RootState): MapStateProps => ({
 const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({
   onNavigate: path => dispatch(push(path)),
   onGetDashInfo: () => dispatch(getStatRequest()),
-  onGetRecentNFT: () => dispatch(getRecentNFTsRequest())
+  onGetRecentNFT: () => dispatch(getRecentNFTsRequest()),
 })
 
 export default connect(mapState, mapDispatch)(DashboardPage)

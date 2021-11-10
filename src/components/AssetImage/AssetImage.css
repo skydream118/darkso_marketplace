@@ -73,3 +73,22 @@
   white-space: nowrap;
   text-transform: lowercase;
 }
+
+.AssetImage .Sarah {
+    background-image: url(../../images/nft/Sarah.png);  
+}
+.AssetImage .Kaylan {
+  background-image: url(../../images/nft/Kaylan.png);  
+}
+.AssetImage .Aurora {
+  background-image: url(../../images/nft/Aurora.png);  
+}
+.AssetImage .Bert {
+  background-image: url(../../images/nft/Bert.png);  
+}
+.AssetImage .Valkyria {
+  background-image: url(../../images/nft/Valkyria.png);  
+}
+.AssetImage .Nox {
+  background-image: url(../../images/nft/Nox.png);  
+}

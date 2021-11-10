@@ -9,6 +9,7 @@ import { profileReducer as profile } from 'decentraland-dapps/dist/modules/profi
 import { authorizationReducer as authorization } from 'decentraland-dapps/dist/modules/authorization/reducer'
 import { toastReducer as toast } from 'decentraland-dapps/dist/modules/toast/reducer'
 import { dashboardReducer as dashboard } from './dashboard/reducer'
+import { NavigationReducer as navigation} from './routing/navigation/reducer'
 
 export const createRootReducer = (history: History) =>
   combineReducers({
@@ -20,6 +21,7 @@ export const createRootReducer = (history: History) =>
     translation,
     wallet,
     dashboard,
+    navigation,
     router: connectRouter(history)
   })
 

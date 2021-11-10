@@ -4,5 +4,6 @@ export const locations = {
     dashboard: () => '/dashboard',
     market: () => '/marketplace',
     train: ()=> '/train',
-    pack: () => '/pack'
+    pack: () => '/pack',
+    account: ()=> '/account'
 }  

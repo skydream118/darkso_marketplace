@@ -16,6 +16,10 @@ const Routes = () => {
         <Route exact path={locations.market()} component={DashboardPage} />
         <Route exact path={locations.train()} component={DashboardPage} />
         <Route exact path={locations.pack()} component={DashboardPage} />
+        {/* <Route exact path={locations.signIn()} component={SignInPage} /> */}
+        {/* <Route exact path={locations.signIn()} component={SignInPage} />
+         */}
+        
 
         {/* <Route exact path="browser" component={LandingPage}/> */}
         {/*<Redirect

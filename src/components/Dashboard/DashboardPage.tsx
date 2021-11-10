@@ -14,12 +14,16 @@ const DashboardPage = (props: Props) => {
     homepageLoading,
     onNavigate,
     onGetDashInfo,
+    onGetRecentNFT,
+    //onActiveTab
   } = props
 
   useEffect(() => {
     onGetDashInfo()
+    onGetRecentNFT()
+    //onActiveTab(NavigationTab.DASH)
     // eslint-disable-next-line
-  }, [onGetDashInfo])
+  }, [onGetDashInfo,onGetRecentNFT])
   return (
     <>
       {/* <Navbar isFullscreen isOverlay /> */}

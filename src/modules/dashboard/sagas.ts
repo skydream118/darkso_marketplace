@@ -19,11 +19,12 @@ export function* dashboardSaga() {
 function* handleGetNFT(){
   try{
     const {
-      
-    }: AwaitFn<typeof get_stat> = yield call(get_recent_nfts)
+      sales,
+      list
+    }: AwaitFn<typeof get_recent_nfts> = yield call(get_recent_nfts)
 
     yield put(
-      getRecentNFTsSuccess()
+      getRecentNFTsSuccess(list, sales)
     )
     
   }catch(error){
