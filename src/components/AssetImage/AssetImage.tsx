@@ -2,7 +2,7 @@ import React from 'react'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 //import { Loader } from 'decentraland-ui'
 //import { LazyImage } from 'react-lazy-images'
-import { getAssetImage } from '../../modules/asset/utils'
+//import { getAssetImage } from '../../modules/asset/utils'
 import { Props } from './AssetImage.types'
 import './AssetImage.css'
 

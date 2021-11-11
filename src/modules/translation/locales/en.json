@@ -8,7 +8,8 @@
     "training" : "TRAINING",
     "packs" : "PACKS",
     "account" : "MY ACCOUNT",
-    "login" : "Login"
+    "login" : "Login",
+    "signin" : "Signin"
   },
   "dash_page": {
     "list": "Newest list",
