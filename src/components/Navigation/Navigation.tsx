@@ -1,15 +1,19 @@
-import React, { useCallback } from 'react'
+import React from 'react'
+import { Web3Provider } from '@ethersproject/providers'
+import { useWeb3React } from '@web3-react/core'
 import { Link } from 'react-router-dom'
 import { Tabs } from 'decentraland-ui'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
-import { ProviderType } from 'decentraland-connect';
+//import { ProviderType } from 'decentraland-connect';
 import { locations } from '../../modules/routing/locations'
 import { Props, NavigationTab } from './Navigation.types'
+import { useEagerConnect, useInactiveListener } from '../../modules/wallet/hook'
+import { injected } from '../../modules/wallet/connectors'
 
 import './Navigation.css'
 
 const Navigation = (props: Props) => {
-  const { activeTab, isConnected, onNavigate,onConnect } = props
+  const { activeTab } = props
 
   // const handleOnSignIn = useCallback(() => {
   //   onNavigate(locations.signIn())
@@ -18,8 +22,35 @@ const Navigation = (props: Props) => {
   // const handleOnClickAccount = useCallback(() => {
   //   onNavigate(locations.account())
   // }, [onNavigate])
+
+  const context = useWeb3React<Web3Provider>()
+  //const { connector, library, chainId, account, activate, deactivate, active, error } = context
+  const { connector, activate } = context
+
+  // handle logic to recognize the connector currently being activated
+  const [activatingConnector, setActivatingConnector] = React.useState<any>()
+  React.useEffect(() => {
+    if (activatingConnector && activatingConnector === connector) {
+      setActivatingConnector(undefined)
+    }
+  }, [activatingConnector, connector])
+
+  // handle logic to eagerly connect to the injected ethereum provider, if it exists and has granted access already
+  const triedEager = useEagerConnect()
+
+  // handle logic to connect in reaction to certain events on the injected ethereum provider, if it exists
+  useInactiveListener(!triedEager || !!activatingConnector)
+
+  const currentConnector = injected
+  //const activating = currentConnector === activatingConnector
+  const connected = currentConnector === connector
+  //const disabled = !triedEager || !!activatingConnector || connected || !!error
+
+  
+
   const handleConnect = () => {
-    onConnect(ProviderType.INJECTED);
+    setActivatingConnector(currentConnector)
+    activate(currentConnector)
   }
 
   return (
@@ -55,7 +86,7 @@ const Navigation = (props: Props) => {
         </Responsive> */}
       </Tabs.Left>
       <Tabs.Right>
-        {isConnected?(
+        {connected?(
           <Link to={locations.account()}>
               <Tabs.Tab>
                 {t('nav.account')}

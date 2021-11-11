@@ -1,8 +1,10 @@
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
+import { Web3ReactProvider} from '@web3-react/core'
 //import { ScrollToTop } from './components/ScrollToTop'
-import WalletProvider from 'decentraland-dapps/dist/providers/WalletProvider'
+//import WalletProvider from 'decentraland-dapps/dist/providers/WalletProvider'
+import { Web3Provider } from '@ethersproject/providers'
 import TranslationProvider from 'decentraland-dapps/dist/providers/TranslationProvider'
 
 //import ToastProvider from 'decentraland-dapps/dist/providers/ToastProvider'
@@ -20,6 +22,12 @@ import { Routes } from './components/Routes'
 import './themes'
 import './index.css'
 
+function getLibrary(provider: any): Web3Provider {
+  const library = new Web3Provider(provider)
+  library.pollingInterval = 12000
+  return library
+}
+
 async function main() {
   //??????????????????????????????????????
   //await buildContracts()
@@ -27,15 +35,12 @@ async function main() {
   const component = (
     <Provider store={initStore()}>
       <TranslationProvider locales={Object.keys(locales)}>
-      
-      {/*<ToastProvider>*/}
-          <WalletProvider>
+        <Web3ReactProvider getLibrary={getLibrary}>
             <ConnectedRouter history={history}>
   
               <Routes />
             </ConnectedRouter>
-          </WalletProvider>
-      {/*</ToastProvider>*/}
+        </Web3ReactProvider>
       </TranslationProvider>
     </Provider>
   )

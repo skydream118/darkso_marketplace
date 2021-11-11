@@ -11,19 +11,23 @@ export enum NavigationTab {
   PACK = 'pack'
 }
 
-export type Props = Partial<NavbarProps> & {
+export type Props_1 = Partial<NavbarProps> & {
   activeTab?: string|null
   isConnected: boolean
   onNavigate: (path: string) => void
   onConnect: (providerType: ProviderType) => any;
   // isFullscreen?: boolean
 }
+export type Props = {
+  activeTab: NavigationTab
+}
+
 
 export type MapStateProps = Pick<
-  Props,
+  Props_1,
   'activeTab' | 'isConnected'
 >
-export type MapDispatchProps = Pick<Props, 'onNavigate'|'onConnect'>
+export type MapDispatchProps = Pick<Props_1, 'onNavigate'|'onConnect'>
 export type MapDispatch = Dispatch<CallHistoryMethodAction|EnableWalletRequestAction>
 
 export type OwnProps = Pick<Props, 'activeTab'>
