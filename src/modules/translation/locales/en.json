@@ -32,5 +32,15 @@
     "common": "Common",
     "rare": "Rare",
     "legendary": "Legendary"
-  }
+  },
+  "filters":{
+    "type" : "Type",
+    "all" : "All",
+    "cheapest" : "Cheapest",
+    "defence" : "Defence",
+    "highest" : "Highest",
+    "newest" : "Newest",
+    "strength" : "Strength",
+    "training" : "Training"
+  } 
 }

@@ -38,3 +38,5 @@ npx web3x-codegen
 ```
 git push https://github.com/Panda-ManR/darkso_marketplace.git
 git clone https://github.com/Panda-ManR/darkso_marketplace.git
+
+https://game.binaryx.pro/#/

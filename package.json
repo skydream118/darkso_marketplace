@@ -2,8 +2,8 @@
   "name": "marketplace-ui",
   "version": "0.4.0",
   "dependencies": {
-    "@web3-react/core":"latest",
     "@dcl/schemas": "^1.5.1",
+    "@web3-react/core": "^6.1.9",
     "apollo-boost": "^0.4.7",
     "bn.js": "^5.2.0",
     "classnames": "^2.3.1",

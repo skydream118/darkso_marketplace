@@ -1,0 +1,19 @@
+.prev {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.next {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+    
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .disabled:hover {
+    background: none;
+  }  
