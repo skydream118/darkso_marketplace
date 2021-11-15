@@ -21,6 +21,7 @@ import { Routes } from './components/Routes'
 
 import './themes'
 import './index.css'
+import DarksoProvider from './contexts/DarksoProvider'
 
 function getLibrary(provider: any): Web3Provider {
   const library = new Web3Provider(provider)
@@ -37,8 +38,9 @@ async function main() {
       <TranslationProvider locales={Object.keys(locales)}>
         <Web3ReactProvider getLibrary={getLibrary}>
             <ConnectedRouter history={history}>
-  
-              <Routes />
+              <DarksoProvider>
+                <Routes />
+              </DarksoProvider>
             </ConnectedRouter>
         </Web3ReactProvider>
       </TranslationProvider>

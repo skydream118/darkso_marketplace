@@ -6,7 +6,10 @@ export type NFT = {
 	training : number
 	strength : number
 	defense : number
-	price: string
+	price?: string
+  owner?: string
+  start_time?: string
+  onSale?: boolean
 }
 
 export enum SortBy {

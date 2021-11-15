@@ -3,7 +3,7 @@ import { CallHistoryMethodAction } from 'connected-react-router'
 
 import { getNFTsRequest, getNFTSRequestAction } from '../../modules/nft/actions'
 
-import { NFT } from '../../modules/nft/types'
+import { NFT, Type } from '../../modules/nft/types'
 import { Rarity,SortBy } from '../../modules/nft/types'
 
 import {
@@ -17,15 +17,16 @@ export type Props = {
   page: number
   size : number
   loading : boolean
-  rarity? : Rarity
-  type?: string
-  sortBy: SortBy
+  rarity : Rarity
+  type: Type
+  sortBy: SortBy,
+  account?: string,
   onNavigate: (path: string) => void
   onGetNFTs: typeof getNFTsRequest
   onBrowse: typeof browse
 }
 
-export type MapStateProps = Pick<Props,'nfts'|'loading'|'page'|'size'|'rarity'|'type'|'sortBy'>
+export type MapStateProps = Pick<Props,'nfts'|'loading'|'page'|'size'|'rarity'|'type'|'sortBy'|'account'>
 export type MapDispatchProps = Pick<
   Props,
   'onNavigate' | 'onGetNFTs' | 'onBrowse'

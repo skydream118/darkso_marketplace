@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 import {
     getSearch as getRouterSearch,
-    //  getLocation
+    getLocation
 } from 'connected-react-router'
 
 import {
@@ -10,6 +10,12 @@ import {
 } from './search'
 import { RootState } from '../reducer'
 import { Rarity, SortBy,Type } from '../nft/types'
+
+export const getPathName = createSelector<
+  RootState,
+  ReturnType<typeof getLocation>,
+  string
+>(getLocation, location => location.pathname)
 
 
 export const getPage = createSelector<RootState, string, number>(
@@ -31,11 +37,11 @@ export const getRarities = createSelector<RootState, string, Rarity>(
         // )
 )
 
-export const getType = createSelector<RootState, string, string>(
+export const getType = createSelector<RootState, string, Type>(
     getRouterSearch,
     search => {
         const type = getURLParam(search, 'type')
-        return type === null ? Type.ALL : type
+        return type === null ? Type.ALL : type as Type
     }
 )
 
@@ -48,13 +54,14 @@ export const getSortBy = createSelector<
     (search) =>getURLParam<SortBy>(search, 'sort') || SortBy.NEWEST
 )
 
+
 export const getAccount = createSelector<
     RootState,
     string,
-    string | null
+    string | undefined
 >(
     getRouterSearch,
-    (search) =>getURLParam(search, 'account')
+    (search) =>getURLParam(search, 'account') || undefined
 )
 
 

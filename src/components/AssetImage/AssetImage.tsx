@@ -2,13 +2,22 @@ import React from 'react'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 //import { Loader } from 'decentraland-ui'
 //import { LazyImage } from 'react-lazy-images'
-//import { getAssetImage } from '../../modules/asset/utils'
 import { Props } from './AssetImage.types'
+import Sarah from '../../images/nft/Sarah.png'
 import './AssetImage.css'
 
 // 1x1 transparent pixel
 const PIXEL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII='
+
+const getAssetImage = (name: string) => {
+  switch (name){
+    case "Sarah":
+      return Sarah
+    default:
+      return Sarah
+  }
+}
 
 const AssetImage = (props: Props) => {
   const {
@@ -28,8 +37,8 @@ const AssetImage = (props: Props) => {
     >
       <img
         alt={t(`asset.${asset.name}`)}
-        className={`image ${asset.name}`}
-        //src={getAssetImage(asset.name)}
+        className="AssetImage"
+        src={getAssetImage(asset.name)}
       />
     </div>
   )

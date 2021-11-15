@@ -11,5 +11,12 @@ export const locations = {
       },
     train: ()=> '/train',
     pack: () => '/pack',
-    account: ()=> '/account'
+    account: ()=> '/account',
+    myasset: (options?: NFTsSearchOption) => {
+      const params = getSearchParams(options)
+      return params? `/account/my_nfts?${params.toString()}` : '/account/my_nfts'
+    },
+    token: (token_id: string = ':tokenId') => {
+      return `/token/detail/${token_id}`
+    }
 }  

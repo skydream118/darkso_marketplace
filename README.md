@@ -40,3 +40,13 @@ git push https://github.com/Panda-ManR/darkso_marketplace.git
 git clone https://github.com/Panda-ManR/darkso_marketplace.git
 
 https://game.binaryx.pro/#/
+
+Binance Smart Chain Mainnet
+
+rpc url - https://bsc-dataseed1.ninicoin.io
+
+chain id - 56
+
+currency - bnb
+
+block-explorer URL - https://bscscan.com/

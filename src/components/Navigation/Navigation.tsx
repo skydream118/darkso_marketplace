@@ -15,6 +15,8 @@ import { Props, NavigationTab } from './Navigation.types'
 import { useEagerConnect, useInactiveListener } from '../../modules/wallet/hook'
 import { injected } from '../../modules/wallet/connectors'
 
+import { SortBy } from '../../modules/nft/types'
+
 import './Navigation.css'
 
 
@@ -48,7 +50,7 @@ const Navigation = (props: Props) => {
 
   const context = useWeb3React<Web3Provider>()
   //const { connector, library, chainId, account, activate, deactivate, active, error } = context
-  const { connector, activate, error } = context
+  const { connector, activate, error ,chainId, deactivate} = context
 
   // handle logic to recognize the connector currently being activated
   const [activatingConnector, setActivatingConnector] = React.useState<any>()
@@ -59,6 +61,14 @@ const Navigation = (props: Props) => {
 
     if(!!error){
       alert(getErrorMessage(error))
+    }
+
+    if(connected){
+      if(!(chainId == 1 || chainId == 4 || chainId == 56 )){
+        isCorrectConnect = false;
+        alert("chane your chain to 1");
+        deactivate();
+      }
     }
 
   }, [activatingConnector, connector])
@@ -73,13 +83,11 @@ const Navigation = (props: Props) => {
   //const activating = currentConnector === activatingConnector
   const connected = currentConnector === connector
   //const disabled = !triedEager || !!activatingConnector || connected || !!error
-
+  let isCorrectConnect = true;
   const handleConnect = () => {
     setActivatingConnector(currentConnector)
     activate(currentConnector)
   }
-
-
 
   return (
     <Tabs>
@@ -89,7 +97,10 @@ const Navigation = (props: Props) => {
             {t('nav.dashboard')}
           </Tabs.Tab>
         </Link>
-        <Link to={locations.market()}>
+        <Link to={locations.market({
+          page_num: 1,
+          sort: SortBy.NEWEST
+        })}>
           <Tabs.Tab active={activeTab === NavigationTab.MARKET}>
             {t('nav.marketplace')}
           </Tabs.Tab>
@@ -112,9 +123,7 @@ const Navigation = (props: Props) => {
             </Tabs.Tab>
           </Link>
         </Responsive> */}
-      </Tabs.Left>
-      <Tabs.Right>
-        {connected?(
+        {connected && isCorrectConnect?(
           <Link to={locations.account()}>
               <Tabs.Tab>
                 {t('nav.account')}
@@ -128,7 +137,9 @@ const Navigation = (props: Props) => {
             </a>
           </Tabs.Tab>
         )}
-      </Tabs.Right>
+      </Tabs.Left>
+      
+        
     </Tabs>
   )
 }

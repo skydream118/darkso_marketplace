@@ -8,7 +8,8 @@ export enum NavigationTab {
   DASH = 'dashboard',
   MARKET = 'marketplace',
   TRAIN = 'training',
-  PACK = 'pack'
+  PACK = 'pack',
+  ACCOUNT = 'account'
 }
 
 export type Props_1 = Partial<NavbarProps> & {

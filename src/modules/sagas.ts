@@ -5,17 +5,11 @@ import { createProfileSaga } from 'decentraland-dapps/dist/modules/profile/sagas
 import { transactionSaga } from 'decentraland-dapps/dist/modules/transaction/sagas'
 
 import { dashboardSaga } from './dashboard/sagas'
-// import { bidSaga } from './bid/sagas'
-// import { nftSaga } from './nft/sagas'
-// import { orderSaga } from './order/sagas'
-// import { proximitySaga } from './proximity/sagas'
-// import { routingSaga } from './routing/sagas'
-// import { tileSaga } from './tile/sagas'
-// import { toastSaga } from './toast/sagas'
+import { NFTsSaga } from './nft/saga'
+import { routingSaga } from './routing/saga'
 import { translationSaga } from './translation/sagas'
-// import { uiSaga } from './ui/sagas'
-// import { walletSaga } from './wallet/sagas'
-// import { itemSaga } from './item/sagas'
+import { PackSaga } from './pack/saga'
+import { TrainSaga } from './training/saga'
 
 const analyticsSaga = createAnalyticsSaga()
 const profileSaga = createProfileSaga({
@@ -29,7 +23,11 @@ export function* rootSaga() {
     transactionSaga(),
     authorizationSaga(),
     dashboardSaga(),
-    translationSaga()
+    translationSaga(),
+    NFTsSaga(),
+    routingSaga(),
+    PackSaga(),
+    TrainSaga()
     //walletSaga()
   ])
 }

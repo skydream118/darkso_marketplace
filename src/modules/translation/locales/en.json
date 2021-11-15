@@ -11,6 +11,11 @@
     "login" : "Login",
     "signin" : "Signin"
   },
+  "account" : {
+    "nav":{
+      "myasset" : "My Assets"
+    }
+  },
   "dash_page": {
     "list": "Newest list",
     "sale" : "Latest tokens",

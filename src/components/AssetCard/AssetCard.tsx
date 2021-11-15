@@ -11,7 +11,7 @@ import './AssetCard.css'
 const AssetCard = (props: Props) => {
   const { asset } = props;
   return (
-    <Card className="AssetCard" link as={Link} to={`token/${asset.token_id}`}>
+    <Card className="AssetCard" link as={Link} to={`token/details/${asset.token_id}`}>
       <AssetImage asset={asset}/>
       <Card.Content>
         <Card.Header>

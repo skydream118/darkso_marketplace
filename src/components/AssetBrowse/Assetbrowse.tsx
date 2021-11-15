@@ -11,18 +11,21 @@ import { Type, Rarity } from '../../modules/nft/types'
 import { NFTFilters } from '../NFTFilters'
 import { AssetList } from '../AssetList'
 import { NFTPagination } from '../NFTPagination'
-import './AssetBrowse.css'
+import './Assetbrowse.css'
 
 const AssetBrowse = (props: Props) => {
 
-    const { page, nfts, loading, type, rarity, size, sortBy, onGetNFTs, onBrowse } = props;
+    const { page, nfts, loading, type, rarity, account, size, sortBy, onGetNFTs, onBrowse } = props;
 
     useEffect(() => {
         onGetNFTs({
             page_num: page,
-            sort: sortBy
+            sort: sortBy,
+            rarity : rarity,
+            type : type,
+            account_addr : account 
         })
-    }, [page, sortBy])
+    }, [page, sortBy, rarity, type, account])
 
     const handleBrowseType = useCallback(
         (type: Type | Rarity) => onBrowse({ type: type as Type | undefined}),
@@ -72,7 +75,7 @@ const AssetBrowse = (props: Props) => {
 
                         <ToggleBox
                             className="result-type-toggle"
-                            header={t('filters.rarity')}
+                            header={t('asset.rarity')}
                             items={[
                                 {
                                     title: t(

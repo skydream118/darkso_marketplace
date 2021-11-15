@@ -10,7 +10,7 @@ import {
 import { MapStateProps, MapDispatchProps, MapDispatch } from './Assetbrowse.types'
 
 import AssetBrowse from './Assetbrowse'
-import { getType, getRarities, getSortBy } from '../../modules/routing/selectors'
+import { getType, getRarities, getSortBy, getAccount } from '../../modules/routing/selectors'
 import { browse } from '../../modules/routing/actions'
 
 const mapState = (state: RootState): MapStateProps => ({
@@ -20,7 +20,8 @@ const mapState = (state: RootState): MapStateProps => ({
     size : state.nfts.size,
     rarity : getRarities(state),
     type : getType(state),
-    sortBy: getSortBy(state)
+    sortBy: getSortBy(state),
+    account : getAccount(state)
 })
 
 const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({

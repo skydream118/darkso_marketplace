@@ -11,6 +11,8 @@ import { toastReducer as toast } from 'decentraland-dapps/dist/modules/toast/red
 import { dashboardReducer as dashboard } from './dashboard/reducer'
 import { NavigationReducer as navigation} from './routing/navigation/reducer'
 import { NFTReducer as nfts } from './nft/reducers'
+import { PackReducer as pack} from './pack/reducers'
+import { TrainReducer as train } from './training/reducers'
 
 export const createRootReducer = (history: History) =>
   combineReducers({
@@ -24,6 +26,8 @@ export const createRootReducer = (history: History) =>
 //    wallet,
     dashboard,
     navigation,
+    pack,
+    train,
     router: connectRouter(history)
   })
 

@@ -1,4 +1,4 @@
-import { takeEvery, put, select, call } from 'redux-saga/effects'
+import { takeEvery, put, select } from 'redux-saga/effects'
 import { push, getLocation } from 'connected-react-router'
 import { getSortBy, getPage, getRarities, getType, getAccount } from './selectors'
 
