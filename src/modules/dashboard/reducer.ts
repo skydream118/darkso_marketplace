@@ -14,9 +14,7 @@ import {
   getNFTsFailureAction
 } from './actions'
 
-import {
-  NFT
-} from './types'
+import { NFT } from '../nft/types';
 
 
 export type DashboardUIState = {

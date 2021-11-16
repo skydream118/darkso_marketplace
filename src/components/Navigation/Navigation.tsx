@@ -64,7 +64,7 @@ const Navigation = (props: Props) => {
     }
 
     if(connected){
-      if(!(chainId == 1 || chainId == 4 || chainId == 56 )){
+      if(!(chainId == 1 || chainId == 1337 || chainId == 56 )){
         isCorrectConnect = false;
         alert("chane your chain to 1");
         deactivate();
@@ -125,7 +125,7 @@ const Navigation = (props: Props) => {
         </Responsive> */}
         {connected && isCorrectConnect?(
           <Link to={locations.account()}>
-              <Tabs.Tab>
+              <Tabs.Tab active={activeTab === NavigationTab.ACCOUNT}>
                 {t('nav.account')}
               </Tabs.Tab>  
           </Link>

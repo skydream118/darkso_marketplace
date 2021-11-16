@@ -1,0 +1,229 @@
+.card {
+    width: 400px;
+    height: 550px;
+    background-color: tomato;
+}
+
+.disciple {
+    padding-top: 40px;
+}
+
+body {
+    background-color: rgb(21, 22, 35);
+    font-family: IBMPlexSans-Medium, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.main {
+    /* display: flex; */
+    /* flex: 1;
+    display: -webkit-box; */
+    background-image: linear-gradient(rgb(27, 28, 45), rgb(30, 34, 55));
+    background-color: initial;
+    border-color: rgba(113, 105, 93, 0.4);
+    flex: 1;
+    min-height: 0;
+    margin: 36px 54px 0px 54px;
+    border: 1px solid rgba(64, 65, 99, .4);
+    border-radius: 16px 16px 0 0;
+    padding: 0;
+}
+
+.h-main-wrapper {
+    display: flex;
+    /* flex-direction: column; */
+    /* padding: 44px 80px; */
+    /* width : 80%; */
+    justify-content: center;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.el-main--headerTitle {
+    font-size: 24px;
+    color: rgb(207, 217, 231);
+    font-family: Montserrat-Bold;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+
+.flex-middle {
+    display: flex;
+    align-items: center;
+}
+
+.back-box {
+    width: 27px;
+    height: 28px;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+}
+
+.detail-content {
+    margin: 44px 0 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.detail-content .detail-right {
+    width: 448px;
+    margin: 0 78px 0 0;
+}
+
+.detail-content .detail-left {
+    padding: 50px 0 0;
+    word-break: break-all;
+}
+
+.flex-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.img-box {
+    border-color: rgba(113, 105, 93, 0.4);
+}
+
+.img-box {
+    width: 400px;
+    height: 500px;
+    padding: 24px;
+    border: 1px solid rgba(64, 65, 99, .4);
+    filter: drop-shadow(0 14px 32px rgba(0, 0, 0, .12));
+    border-radius: 12px;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.game-detail {
+    color: rgb(206, 202, 195);
+    background-image: initial;
+    background-color: rgb(38, 38, 63);
+    margin-top: 40px;
+    padding: 24px;
+    font-size: 16px;
+    word-break: break-all;
+    background: #2f304f;
+    border-radius: 8px;
+}
+
+.header-block {
+    border-bottom-color: rgb(113, 105, 93);
+    padding-bottom: 16px;
+    border-bottom: 2px solid #404163;
+}
+
+.attributes-block {
+    margin-top: 39px;
+}
+
+.tit {
+    border-bottom-color: rgb(113, 105, 93);
+    line-height: 24px;
+    font-family: Montserrat-Bold;
+    /* padding-bottom: 16px; */
+    border-bottom: 2px solid #404163;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.flex-between,
+.flex-middle,
+.text-between {
+    display: flex;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.label {
+    color: rgb(207, 217, 231);
+    line-height: 20px;
+}
+
+.tit .value {
+    color: rgb(79, 244, 255);
+}
+
+.text-r {
+    text-align: right;
+}
+
+.row .label .num {
+    font-family: DINPro-Medium;
+}
+
+.row .value {
+    padding: 8px 0 7px;
+}
+
+.line {
+    background-color: rgba(24, 26, 27, 0.1);
+    height: 8px;
+    position: relative;
+}
+
+.line-pro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-image: linear-gradient(90.7deg, rgb(160, 8, 28) 0.15%, rgb(162, 38, 12) 101.76%);
+    /* background: linear-gradient(90.7deg, #f6465d .15%, #f15f40 101.76%); */
+    border-radius: 0 8px 8px 0;
+}
+
+.small-title {
+    color: rgb(162, 153, 141);
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.price {
+    color: rgb(207, 217, 231);
+    font-size: 18px;
+    align-items: flex-end;
+    margin-top: 6px;
+    line-height: 42px;
+}
+
+.cursor_focus {
+    cursor: pointer;
+}
+
+.big {
+    font-size: 48px;
+    font-family: DINPro-Regular;
+    margin: 0 16px 0 0;
+    line-height: 64px;
+}
+
+.btn {
+    width: 100px;
+    margin: 32px 0 0;
+    /* background-image: linear-gradient(90.7deg, rgb(160, 8, 28) 0.15%, rgb(162, 38, 12) 101.76%); */
+    background-color: initial;
+    color: rgb(232, 230, 227);
+    display: block;
+    width: 20%;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    background: linear-gradient(90.7deg, rgb(160, 8, 28) 0.15%, rgb(162, 38, 12) 101.76%);
+    border-radius: 8px;
+    border-color: transparent;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}

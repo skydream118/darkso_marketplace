@@ -5,18 +5,34 @@ import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 import { NFT } from '../../modules/nft/types'
 import { Props } from './AssetImage.types'
 import Sarah from '../../images/nft/Sarah.png'
+import Aurora from '../../images/nft/Aurora.png'
+import Bert from '../../images/nft/Bert.png'
+import Kaylan from '../../images/nft/Kaylan.png'
+import Nox from '../../images/nft/Nox.png'
+import Valkyria from '../../images/nft/Valkyria.png'
 import './AssetImage.css'
+import Pack from '../../images/nft/pack.png'
 
 // 1x1 transparent pixel
 const PIXEL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII='
 
-const getAssetImage = (name: string) => {
+export const getAssetImage = (name: string | undefined) => {
   switch (name){
     case "Sarah":
       return Sarah
+    case "Aurora":
+      return Aurora
+    case "Bert":
+      return Bert
+    case "Kaylan":
+      return Kaylan
+    case "Nox":
+      return Nox
+    case "Valkyria":
+      return Valkyria 
     default:
-      return Sarah
+      return Pack
   }
 }
 
@@ -37,7 +53,7 @@ const AssetImage = (props: Props) => {
       }}
     >
       <img
-        alt={t(`asset.${asset?.name}`)}
+        alt={t(`asset.${asset.name}`)}
         className="AssetImage"
         src={getAssetImage((asset as NFT).name)}
       />

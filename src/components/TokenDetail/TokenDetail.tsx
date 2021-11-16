@@ -10,6 +10,7 @@ import { NavigationTab as AccountNavTab } from '../Account/Navigation/Navigation
 
 import { useHistory } from 'react-router'
 import styles from './TokenDetail.module.css'
+import { locations } from '../../modules/routing/locations'
 
 //import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 
@@ -19,6 +20,7 @@ import styles from './TokenDetail.module.css'
 // } from 'decentraland-ui'
 
 import { Props } from './TokenDetail.types'
+import { getAssetImage } from '../AssetImage/AssetImage'
 
 const TokenDetailPage = (props: Props) => {
     const {
@@ -31,7 +33,8 @@ const TokenDetailPage = (props: Props) => {
         onBUY,
         onEnableSale,
         onDisableSale,
-        onReset
+        onReset,
+        onNavigate
     } = props
 
     const context = useWeb3React<Web3Provider>()
@@ -46,8 +49,8 @@ const TokenDetailPage = (props: Props) => {
     }
 
     const training = (nft?.training ? nft.training : 0) / 4 * 100
-    const strength = (nft?.training ? nft.training : 0) / 180 * 100
-    const defence = (nft?.training ? nft.training : 0) / 180 * 100
+    const strength = (nft?.strength ? nft.strength : 0) / 180 * 100
+    const defence = (nft?.defense ? nft.defense : 0) / 180 * 100
 
     const history = useHistory();
 
@@ -64,7 +67,10 @@ const TokenDetailPage = (props: Props) => {
     )
 
     const handleTraining = useCallback(
-        () => onSetTrainer(nft?.token_id as string),
+        () =>{
+            onSetTrainer(nft?.token_id as string)
+            onNavigate(locations.train())
+        },
         [onSetTrainer]
     )
 
@@ -107,7 +113,7 @@ const TokenDetailPage = (props: Props) => {
                                     Details
                                 </div>
                                 <div className="img-box">
-                                    <img src="Aurora.png" className="pic" />
+                                    <img src={getAssetImage(nft?.name)} className="pic" />
                                 </div>
                                 <div className="game-detail">
                                     <div className="header-block flex-middle">
@@ -191,20 +197,20 @@ const TokenDetailPage = (props: Props) => {
                                                 [styles.disabled]: nft?.training == 0,
                                                 [styles.active]: nft ? nft.training > 0 : false
                                             })}
-                                            onClick={() => handleTraining}>
+                                            onClick={() => handleTraining()}>
                                             <span>Training</span>
                                         </button>
                                     ) : (
                                         isAccountAsset ? (
                                             nft?.onSale ? (
-                                                <button className="el-button" onClick={() => handleDisableSale}>
+                                                <button className="el-button" onClick={() => handleDisableSale()}>
                                                     <span>disable on-sale</span>
                                                 </button>
                                             ) : (
                                                 <div>
                                                     <input type="text" placeholder="type your NFT price" onChange={(e) => setPrice(e.target.value)} />
 
-                                                    <button className="el-button" onClick={() => handleEnableSale}>
+                                                    <button className="el-button" onClick={() => handleEnableSale()}>
                                                         <span>enable on-sale</span>
                                                     </button>
                                                 </div>
@@ -212,7 +218,7 @@ const TokenDetailPage = (props: Props) => {
 
                                         ) : (
                                             nft?.onSale ? (
-                                                <button className="el-button" onClick={() => handleBUY}>
+                                                <button className="el-button" onClick={() => handleBUY()}>
                                                     <span>Buy</span>
                                                 </button>
                                             ) : (

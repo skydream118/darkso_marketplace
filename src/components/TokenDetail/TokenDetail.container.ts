@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { RootState } from '../../modules/reducer'
+import { push } from 'connected-react-router'
 
 import { getFinishState, getNFTInfo,getError,getLoading } from '../../modules/nft/selectors'
 
@@ -24,7 +25,8 @@ const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({
   onBUY:(token_id, price) => dispatch(buyNFTRequest(token_id, price)),
   onEnableSale : (token_id, price) => dispatch(enableSaleRequest(token_id,price)),
   onDisableSale : (token_id) => dispatch(disableSaleRequest(token_id)),
-  onReset : () => dispatch(resetState())
+  onReset : () => dispatch(resetState()),
+  onNavigate: path => dispatch(push(path))
 })
 
 export default connect(mapState, mapDispatch)(TokenDetailPage)

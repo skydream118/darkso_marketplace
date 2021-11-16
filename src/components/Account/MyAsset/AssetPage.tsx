@@ -11,7 +11,6 @@ import { Navigation as AccountNav } from '../Navigation'
 import { NavigationTab as AccountNavTab } from '../Navigation/Navigation.types'
 
 const AssetPage = () => {
-  const activeTab = NavigationTab.ACCOUNT
 
   const context = useWeb3React<Web3Provider>()
   const { connector } = context
@@ -22,7 +21,7 @@ const AssetPage = () => {
 
   return (
     <>
-      <Navigation activeTab={activeTab} />
+      <Navigation activeTab={NavigationTab.ACCOUNT} />
       <AccountNav activeTab={AccountNavTab.MYASSET} />
       {connected ? (
         <AssetBrowse />

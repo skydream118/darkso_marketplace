@@ -79,3 +79,8 @@ export const disableSaleFailure = (error: string | undefined) =>
 export type disableSaleRequestAction = ReturnType<typeof disableSaleRequest>
 export type disableSaleSuccessAction = ReturnType<typeof disableSaleSuccess>
 export type disableSaleFailureAction = ReturnType<typeof disableSaleFailure>
+
+export const SET_NEW_Pack = "[Set] New Pack"
+export const setNewPack = (new_pack : NFT)=>
+  action(SET_NEW_Pack,{new_pack})
+export type setNewPackAction = ReturnType<typeof setNewPack>

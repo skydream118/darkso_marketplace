@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 
@@ -11,40 +11,73 @@ import { injected } from '../../modules/wallet/connectors'
 import {
     Loader
 } from 'decentraland-ui'
+import { NFT } from '../../modules/nft/types'
 import useDarkso from '../../hook/useDarkso'
 import Darkso from '../../darkso'
-
+import './PackPage.css'
 
 
 const PackPage = (props: Props) => {
     const {
-        pack_state, onBuyPack
+        pack_state, onBuyPack,onBuySuccess
     } = props
     const { loading, error, pack_id } = pack_state;
 
     const darkso = useDarkso()
+    
+    const [start, setStart] = useState(false)
 
     const context = useWeb3React<Web3Provider>()
     const { connector, account, active } = context
-    let isStart = false;
+    // useEffect(() => {
+         if (darkso) {
+            const darksoNFTContract = darkso?.contracts.getDarksoNFTContract()
+            darksoNFTContract.on("NewDARKToken", (tokenId, name, type, tarity, training, strength, defense, startTime) => {
+                if(loading){
+                    console.log("NewDARKToken");
 
-    useEffect(()=>{
-        if(darkso){
-            const darksoNFT = darkso.contracts.getDarksoNFTContract()
-            darksoNFT.on("NewDARKToken",(receipt)=>{
-                console.log(receipt);
+                    if (type.toNumber() == 1) {
+                        type = "hero"
+                    } else {
+                        type = "discipline"
+                    }
+
+                    switch (tarity.toNumber()) {
+                        case 1:
+                            tarity = "common"
+                            break;
+                        case 2:
+                            tarity = "rare"
+                            break;
+                        case 3:
+                            tarity = "legendary"
+                            break;
+                    }
+
+                    const nft: NFT = {
+                        token_id: tokenId.toString(),
+                        name: name,
+                        token_type: type,
+                        rarity: tarity,
+                        training: training.toNumber(),
+                        strength: strength.toNumber(),
+                        defense: defense.toNumber(),
+                        start_time: startTime.toNumber()
+                    }
+                    onBuySuccess(nft)
+                }
             })
         }
-    },[])
+//    }, [])
 
     const handleBuyPack = useCallback(
         () => {
             const connected = injected === connector;
             if (connected && active && account) {
-                isStart = true
+                setStart(true)
                 onBuyPack(darkso as Darkso)
             } else {
-                alert("connect wallet")
+                console.log("-- connect wallet -- pack")
             }
         },
         [onBuyPack]
@@ -52,7 +85,7 @@ const PackPage = (props: Props) => {
 
     return (
         <>
-            <Navigation activeTab={NavigationTab.MARKET} />
+            <Navigation activeTab={NavigationTab.PACK} />
             <main className="main">
                 <div className="flex-center">
                     <div className="h-main-wrapper">
@@ -70,30 +103,32 @@ const PackPage = (props: Props) => {
                             <div className="detail-left flex-item">
                                 <div className="small-title">Price</div>
                                 <div className="price flex">
-                                    <span className="big">0.15</span>
-                                    <span className="small">DNB</span>
+                                    <span className="big">80</span>
+                                    <span className="small">$</span>
                                 </div>
                                 <div className="btn-group">
-                                    <button className="el-button el-button--primary el-button--large btn" onClick={() => handleBuyPack}>
-                                        <span>Buy</span>
-                                    </button>
+
                                     {loading ? (
                                         <>
                                             <div className="overlay" />
                                             <Loader size="massive" active />
                                         </>
-                                    ) : null}
+                                    ) : (
+                                        <button className="el-button el-button--primary el-button--large btn" onClick={() => handleBuyPack()}>
+                                            <span>Buy</span>
+                                        </button>
+                                    )}
                                 </div>
-                                {error?(
+                                {start && error ? (
                                     <div className="error">
                                         {error}
                                     </div>
-                                ):null}
-                                {!error && isStart && !loading?(
+                                ) : null}
+                                {!error && start && !loading ? (
                                     <div className="success">
                                         Pack Name : {pack_id}
                                     </div>
-                                ):null}
+                                ) : null}
                             </div>
                         </div>
                     </div>

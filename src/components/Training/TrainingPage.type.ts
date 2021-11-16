@@ -11,7 +11,9 @@ import {
   TrainingRequestAction, 
   TrainingRequest, 
   TrainingReset,
-  TrainingResetAction } from '../../modules/training/actions'
+  TrainingResetAction, 
+  TrainingSucess,
+  TrainingSucessAction} from '../../modules/training/actions'
 import { TrainUIState } from '../../modules/training/reducers'
 import { NFT } from '../../modules/nft/types'
 //import { setActiveTab,setActiveTabAction }from '../../modules/routing/navigation/actions'
@@ -24,15 +26,16 @@ export type Props = {
   onSetFirst : typeof setTrainingFirst,
   onSetSecond : typeof setTrainingSecond,
   onTrainingRequest : typeof TrainingRequest,
+  onTrainingSuccess : typeof TrainingSucess
   onReset : typeof TrainingReset
 }
 
 export type MapStateProps = Pick<Props, 'training_state' | 'nfts'>
 export type MapDispatchProps = Pick<
   Props,
-  'onNavigate' | 'onEnableTrain' | 'onSetFirst' | 'onSetSecond' | 'onTrainingRequest' | 'onReset'
+  'onNavigate' | 'onEnableTrain' | 'onSetFirst' | 'onSetSecond' | 'onTrainingRequest' | 'onReset' | 'onTrainingSuccess'
 >
 
 export type MapDispatch = Dispatch<
- CallHistoryMethodAction|enableTrainAction|setTrainingFirstAction|setTrainingSecondAction|TrainingRequestAction|TrainingResetAction
+ CallHistoryMethodAction|enableTrainAction|setTrainingFirstAction|setTrainingSecondAction|TrainingRequestAction|TrainingResetAction | TrainingSucessAction
 >

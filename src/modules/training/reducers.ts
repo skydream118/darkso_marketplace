@@ -109,7 +109,7 @@ import {
         return {
           ...state,
           loading: false,
-          train_id : action.payload.token_id
+          train_id : action.payload.token.token_id
         }
       }
       default:

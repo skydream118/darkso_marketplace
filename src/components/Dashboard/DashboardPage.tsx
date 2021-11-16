@@ -21,6 +21,27 @@ const DashboardPage = (props: Props) => {
   useEffect(() => {
     onGetDashInfo()
     onGetRecentNFT()
+
+    type ft = {
+      name : string,
+      age : number
+    }
+    type asseter_type = {
+      nfts : ft[],
+      loading: boolean
+    }
+
+    const asseter: asseter_type = {
+      nfts:[{name : "wikey",age : 12}],
+      loading: false
+    }
+
+    console.log({
+      ...asseter,
+      nfts:[...asseter.nfts, {name: "waler",age : 15}]
+    })
+
+
     //onActiveTab(NavigationTab.DASH)
     // eslint-disable-next-line
   }, [onGetDashInfo,onGetRecentNFT])

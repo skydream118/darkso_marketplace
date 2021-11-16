@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 // import { AssetType } from '../../modules/asset/types'
 import { locations } from '../../modules/routing/locations'
+import { AssetPage } from '../Account/MyAsset'
 import { DashboardPage } from '../Dashboard'
 import { MarketPage } from '../Market'
 import { PackPage } from '../Pack'
@@ -20,6 +21,8 @@ const Routes = () => {
         <Route exact path={locations.train()} component={TrainPage} />
         <Route exact path={locations.pack()} component={PackPage} />
         <Route exact path={locations.token()} component={TokenDetailPage} />
+        <Route exact path={locations.account()} component={AssetPage} />
+        <Route exact path={locations.myasset()} component={AssetPage} />
         
         {/* <Route exact path={locations.signIn()} component={SignInPage} /> */}
         {/* <Route exact path={locations.signIn()} component={SignInPage} />

@@ -1,4 +1,4 @@
-import { NFT } from './types'
+import { NFT } from '../nft/types';
 import recent_nfts from '../../demo/recent_nft.json';
 export type STATResult = {
   tvolumn:number

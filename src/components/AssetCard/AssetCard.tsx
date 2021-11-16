@@ -12,18 +12,18 @@ import './AssetCard.css'
 const AssetCard = (props: Props) => {
   const { asset } = props;
   return (
-    <Card className="AssetCard" link as={Link} to={`token/details/${asset?.token_id}`}>
+    <Card className="AssetCard" link as={Link} to={`/token/detail/${asset.token_id}`}>
       <AssetImage asset={asset}/>
       <Card.Content>
         <Card.Header>
-          <div className="title">{t(`asset.${asset?.name}`)}</div>
-          {asset?.price ? (
+          <div className="title">{t(`asset.${asset.name}`)}</div>
+          {asset.price ? (
             asset.price
           ) : null}
         </Card.Header>
         <Card.Meta>
-          {t(`asset.strength`)}{" "}{asset?.strength}
-          {t(`asset.defense`)}{" "}{asset?.defense}
+          {t(`asset.strength`)}{" "}{asset.strength}
+          {t(`asset.defense`)}{" "}{asset.defense}
         </Card.Meta>
         <WearableTags asset={asset as NFT} />
       </Card.Content>

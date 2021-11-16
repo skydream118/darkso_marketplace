@@ -19,16 +19,24 @@ import {
   disableSaleSuccess,
   disableSaleFailure,
   disableSaleRequestAction,
-  DISABLE_SALE_REQUEST
+  DISABLE_SALE_REQUEST,
+  setNewPack
 } from './actions'
-import { BUY_Pack_REQUEST } from '../pack/actions'
+import { BUY_Pack_REQUEST,BUY_Pack_SUCCESS,buyPackSuccessAction } from '../pack/actions'
+import { TRAINING_SUCCESS, TrainingSucessAction } from '../training/actions'
 
 export function* NFTsSaga() {
   yield takeEvery(GET_NFTs_REQUEST, handleGetNFTs)
   yield takeEvery(BUY_Pack_REQUEST, handleBuyNFT)
   yield takeEvery(ENABLE_SALE_REQUEST, handleEnableSale)
   yield takeEvery(DISABLE_SALE_REQUEST, handleDisableSale)
+  yield takeEvery(BUY_Pack_SUCCESS, handleBuyPack)
+  yield takeEvery(TRAINING_SUCCESS, handleTraining)
 
+}
+
+function* handleTraining(action: TrainingSucessAction){
+  yield put(setNewPack(action.payload.token))
 }
 
 function* handleGetNFTs(action: getNFTSRequestAction) {
@@ -48,6 +56,10 @@ function* handleGetNFTs(action: getNFTSRequestAction) {
   } catch (error) {
     yield put(getNFTsFailure(error.message))
   }
+}
+
+function* handleBuyPack(action: buyPackSuccessAction) {
+  yield put(setNewPack(action.payload.nft))
 }
 
 function* handleBuyNFT(action: buyNFTRequestAction) {

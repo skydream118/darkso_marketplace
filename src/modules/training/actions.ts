@@ -1,5 +1,6 @@
 import { action } from 'typesafe-actions'
-//import { NFT } from '../nft/types'
+import Darkso from '../../darkso'
+import { NFT } from '../nft/types'
 
 export const ENABLE_TRAIN = '[Request] enable Train'
 
@@ -27,9 +28,9 @@ export const setTrainingSecond = () =>
 export const SetTrainer = (token_id: string) => 
   action(SET_TRAINER, {token_id})
 
-export const TrainingRequest = (first_id : string, second_id : string) =>
+export const TrainingRequest = ( darkso: Darkso, first_id : string, second_id : string) =>
   action(TRAINING_REQUEST, {
-    first_id,second_id
+    darkso,first_id,second_id
   })
 
 export const TrainingFailure = (error : string) =>
@@ -37,9 +38,9 @@ export const TrainingFailure = (error : string) =>
     error
   })
 
-export const TrainingSucess = (token_id: string)=>
+export const TrainingSucess = (token: NFT)=>
 	action(TRAINING_SUCCESS,{
-		token_id
+		token
   })
 
 export const TrainingReset = () => 

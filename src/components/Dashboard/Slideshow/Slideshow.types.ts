@@ -1,4 +1,4 @@
-import { NFT } from '../../../modules/dashboard/types'
+import { NFT } from '../../../modules/nft/types'
 
 export type Props = {
   title: string

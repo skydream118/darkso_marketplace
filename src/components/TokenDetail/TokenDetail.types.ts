@@ -1,3 +1,4 @@
+import { CallHistoryMethodAction } from 'connected-react-router'
 import { Dispatch } from 'redux'
 import { buyNFTRequest, buyNFTRequestAction, disableSaleRequest, disableSaleRequestAction, enableSaleRequest, enableSaleRequestAction, resetState, resetStateAction } from '../../modules/nft/actions'
 
@@ -13,6 +14,7 @@ export type Props = {
   onSetTrainer : typeof SetTrainer
   onBUY : typeof buyNFTRequest
   onReset : typeof resetState
+  onNavigate: (path: string) => void
   err : string | null
   loading : boolean
   onEnableSale : typeof enableSaleRequest
@@ -22,8 +24,8 @@ export type Props = {
 export type MapStateProps = Pick<Props, 'nft' | 'isTrain' | 'isFinished' | 'err' | 'loading'>
 export type MapDispatchProps = Pick<
   Props,
-  'onSetTrainer' | 'onBUY'| 'onReset' | 'onEnableSale' | 'onDisableSale'
+  'onNavigate' | 'onSetTrainer' | 'onBUY'| 'onReset' | 'onEnableSale' | 'onDisableSale'
 >
 export type MapDispatch = Dispatch<
-  SetTrainerAction | buyNFTRequestAction | resetStateAction | enableSaleRequestAction | disableSaleRequestAction
+  CallHistoryMethodAction | SetTrainerAction | buyNFTRequestAction | resetStateAction | enableSaleRequestAction | disableSaleRequestAction
 >

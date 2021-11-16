@@ -9,7 +9,8 @@ import {
     setTrainingFirst,
     setTrainingSecond,
     TrainingRequest,
-    TrainingReset
+    TrainingReset,
+    TrainingSucess
 } from '../../modules/training/actions'
 import TrainingPage from './TrainingPage'
 import { getOnlyNFTs } from '../../modules/nft/selectors'
@@ -25,7 +26,8 @@ const mapDispatch = (dispatch: MapDispatch): MapDispatchProps => ({
     onSetFirst: () => dispatch(setTrainingFirst()),
     onSetSecond : () =>dispatch(setTrainingSecond()),
     onReset:() => dispatch(TrainingReset()),
-    onTrainingRequest : (first, second) => dispatch(TrainingRequest(first, second))
+    onTrainingRequest : (darkso, first, second) => dispatch(TrainingRequest(darkso, first, second)),
+    onTrainingSuccess : (nft) => dispatch(TrainingSucess(nft))
 })
 
 export default connect(mapState, mapDispatch)(TrainingPage)

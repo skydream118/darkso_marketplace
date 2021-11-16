@@ -42,6 +42,7 @@ import {
         return {
           ...state,
           pack_id : token_id,
+          error: null,
           loading: false
         }
       }

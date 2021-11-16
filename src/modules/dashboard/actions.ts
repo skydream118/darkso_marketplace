@@ -1,7 +1,7 @@
 import { action } from 'typesafe-actions'
 
-import {GetStatOption, NFT} from './types';
-
+import {GetStatOption} from './types';
+import { NFT } from '../nft/types';
 export const GET_STAT_REQUEST = '[Request] Get State'
 export const GET_STAT_SUCCESS = '[Success] Get State'
 export const GET_STAT_FAILURE = '[Failure] Get State'

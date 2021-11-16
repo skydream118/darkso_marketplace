@@ -1,7 +1,7 @@
 import { NFT } from '../../modules/nft/types'
 
 export type Props = {
-  asset: NFT | undefined
+  asset: NFT
   // className?: string
   // isDraggable?: boolean
   // withNavigation?: boolean

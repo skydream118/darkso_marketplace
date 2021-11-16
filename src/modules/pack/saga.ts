@@ -2,19 +2,20 @@ import { takeEvery, call, put} from 'redux-saga/effects'
 
 import { buy_pack } from '../../darkso/utils'
 //import { AwaitFn } from '../types'
+//import { NFT } from "../nft/types";
 import {
     BUY_Pack_REQUEST,
     buyPackFailure,
-    buyPackRequestAction 
+    buyPackRequestAction, 
+//    buyPackSuccess
 } from './actions'
 
 export function* PackSaga() {
   yield takeEvery(BUY_Pack_REQUEST, handleBuyPack)
 }
-
 function* handleBuyPack(action: buyPackRequestAction){
   try{
-   
+
     yield call(buy_pack, action.payload.darkso)
 
     // const {

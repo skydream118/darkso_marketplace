@@ -22,7 +22,9 @@ import {
   enableSaleFailureAction,
   DISABLE_SALE_REQUEST,
   DISABLE_SALE_FAILURE,
-  DISABLE_SALE_SUCCESS
+  DISABLE_SALE_SUCCESS,
+  SET_NEW_Pack,
+  setNewPackAction
 } from './actions'
 
 import {
@@ -59,6 +61,7 @@ type UIReducerAction =
   | enableSaleSuccessAction
   | enableSaleFailureAction
   | resetStateAction
+  | setNewPackAction
 
 export function NFTReducer(
   state: NFTsUIState = INITIAL_STATE,
@@ -141,13 +144,16 @@ export function NFTReducer(
         loading: false,
         success: true
       }
-
-
     case RESET_STATE:
       return {
         ...state,
         success: false,
         error: null
+      }
+    case SET_NEW_Pack:
+      return {
+        ...state,
+        nfts: [...state.nfts,action.payload.new_pack]
       }
     default:
       return state
