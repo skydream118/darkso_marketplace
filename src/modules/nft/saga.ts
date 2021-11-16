@@ -13,13 +13,13 @@ import {
   buyNFTSuccess,
   buyNFTFailure,
   ENABLE_SALE_REQUEST,
-  disableSaleRequest,
   enableSaleRequestAction,
   enableSaleSuccess,
   enableSaleFailure,
   disableSaleSuccess,
   disableSaleFailure,
-  disableSaleRequestAction
+  disableSaleRequestAction,
+  DISABLE_SALE_REQUEST
 } from './actions'
 import { BUY_Pack_REQUEST } from '../pack/actions'
 
@@ -27,7 +27,7 @@ export function* NFTsSaga() {
   yield takeEvery(GET_NFTs_REQUEST, handleGetNFTs)
   yield takeEvery(BUY_Pack_REQUEST, handleBuyNFT)
   yield takeEvery(ENABLE_SALE_REQUEST, handleEnableSale)
-  yield takeEvery(disableSaleRequest, handleDisableSale)
+  yield takeEvery(DISABLE_SALE_REQUEST, handleDisableSale)
 
 }
 
@@ -74,7 +74,7 @@ function* handleEnableSale(action: enableSaleRequestAction) {
     const {
       result,
       error
-    }: AwaitFn<typeof buy_nft> = yield call(enable_NftSale, token_id, price)
+    }: AwaitFn<typeof enable_NftSale> = yield call(enable_NftSale, token_id, price)
 
     if (result && !error) {
       yield put((enableSaleSuccess()))
@@ -92,7 +92,7 @@ function* handleDisableSale(action: disableSaleRequestAction) {
     const {
       result,
       error
-    }: AwaitFn<typeof buy_nft> = yield call(disable_NftSale, token_id )
+    }: AwaitFn<typeof disable_NftSale> = yield call(disable_NftSale, token_id )
 
     if (result && !error) {
       yield put((disableSaleSuccess()))

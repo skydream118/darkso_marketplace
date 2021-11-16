@@ -2,6 +2,7 @@ import React from 'react'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 //import { Loader } from 'decentraland-ui'
 //import { LazyImage } from 'react-lazy-images'
+import { NFT } from '../../modules/nft/types'
 import { Props } from './AssetImage.types'
 import Sarah from '../../images/nft/Sarah.png'
 import './AssetImage.css'
@@ -36,9 +37,9 @@ const AssetImage = (props: Props) => {
       }}
     >
       <img
-        alt={t(`asset.${asset.name}`)}
+        alt={t(`asset.${asset?.name}`)}
         className="AssetImage"
-        src={getAssetImage(asset.name)}
+        src={getAssetImage((asset as NFT).name)}
       />
     </div>
   )

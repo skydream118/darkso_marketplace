@@ -5,7 +5,9 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { locations } from '../../modules/routing/locations'
 import { DashboardPage } from '../Dashboard'
 import { MarketPage } from '../Market'
+import { PackPage } from '../Pack'
 import { TokenDetailPage } from '../TokenDetail'
+import { TrainPage } from '../Training'
 
 const Routes = () => {
   //const APP_ID = process.env.REACT_APP_INTERCOM_APP_ID
@@ -15,8 +17,8 @@ const Routes = () => {
       <Switch>
         <Route exact path={locations.root()} component={DashboardPage} />
         <Route exact path={locations.market()} component={MarketPage} />
-        <Route exact path={locations.train()} component={DashboardPage} />
-        <Route exact path={locations.pack()} component={DashboardPage} />
+        <Route exact path={locations.train()} component={TrainPage} />
+        <Route exact path={locations.pack()} component={PackPage} />
         <Route exact path={locations.token()} component={TokenDetailPage} />
         
         {/* <Route exact path={locations.signIn()} component={SignInPage} /> */}

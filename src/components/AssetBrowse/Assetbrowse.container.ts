@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 
 import { RootState } from '../../modules/reducer'
-import { getNFTsRequest } from '../../modules/nft/actions'
+import { getNFTUIState } from '../../modules/nft/selectors'
 import {
   getPage
 } from '../../modules/routing/selectors'
@@ -12,12 +12,11 @@ import { MapStateProps, MapDispatchProps, MapDispatch } from './Assetbrowse.type
 import AssetBrowse from './Assetbrowse'
 import { getType, getRarities, getSortBy, getAccount } from '../../modules/routing/selectors'
 import { browse } from '../../modules/routing/actions'
+import { getNFTsRequest } from '../../modules/nft/actions'
 
 const mapState = (state: RootState): MapStateProps => ({
-    nfts : state.nfts.nfts,
-    loading:  state.nfts.loading,
+    nfts_state : getNFTUIState(state),
     page: getPage(state),
-    size : state.nfts.size,
     rarity : getRarities(state),
     type : getType(state),
     sortBy: getSortBy(state),

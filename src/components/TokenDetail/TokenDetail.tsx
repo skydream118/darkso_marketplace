@@ -27,7 +27,7 @@ const TokenDetailPage = (props: Props) => {
         isFinished,
         onSetTrainer,
         err,
-        loading,
+        //loading,
         onBUY,
         onEnableSale,
         onDisableSale,

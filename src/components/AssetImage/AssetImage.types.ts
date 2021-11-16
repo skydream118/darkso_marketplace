@@ -1,7 +1,7 @@
-import { NFT } from '../../modules/dashboard/types'
+import { NFT } from '../../modules/nft/types'
 
 export type Props = {
-  asset: NFT
+  asset: NFT | undefined
   // className?: string
   // isDraggable?: boolean
   // withNavigation?: boolean

@@ -6,7 +6,6 @@ import { Navigation } from '../Navigation'
 import { NavigationTab } from '../Navigation/Navigation.types'
 //import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 import { Props } from './TrainingPage.type'
-import pack from '../../images/nft/pack.png'
 import { injected } from '../../modules/wallet/connectors'
 import { NFT } from '../../modules/nft/types'
 import {
@@ -119,11 +118,11 @@ const TrainingPage = (props: Props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-center disciple" onClick={() => handleTraining}>
+                    <div className="flex flex-center disciple" >
                         {loading ? (
                             <Loader></Loader>
                         ) : null}
-                        <button className="btn">Train</button>
+                        <button className="btn" onClick={() => handleTraining}>Train</button>
                     </div>
                     <div className="flex flex-center disciple">
 

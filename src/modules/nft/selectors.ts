@@ -23,7 +23,7 @@ export const getTokenId = createSelector<
 >(nftDetailMatchSelector, match => match?.params.tokenId || null)
 
 
-export const getNFTs = createSelector<
+export const getNFTUIState = createSelector<
   RootState,
   NFTsUIState,
   NFTsUIState
@@ -48,7 +48,7 @@ export const getNFTInfo = createSelector<
   NFT | undefined
 >(
   state => getTokenId(state),
-  state => getNFTs(state),
+  state => getNFTUIState(state),
   (tokenId, tokenState) => tokenState.nfts.find(nft => nft.token_id == tokenId)
 )
 

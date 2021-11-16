@@ -2,8 +2,8 @@ import { Contract } from '@ethersproject/contracts'
 import { Web3Provider } from '@ethersproject/providers'
 
 //import ERC20Abi from './lib/abi/ERC20.json'
-import DarksoAbi from './lib/abi/Darkso.json'
-import DarksoNFTAbi from './lib/abi/DarksoNFT.json'
+import DarksoAbi from './lib/abi/darkso.json'
+import DarksoNFTAbi from './lib/abi/darksoNFT.json'
 
 import { DarksoAddress, DarksoNFTAddress } from './lib/constants'
 

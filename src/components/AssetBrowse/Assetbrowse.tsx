@@ -15,7 +15,8 @@ import './Assetbrowse.css'
 
 const AssetBrowse = (props: Props) => {
 
-    const { page, nfts, loading, type, rarity, account, size, sortBy, onGetNFTs, onBrowse } = props;
+    const { page, nfts_state, type, rarity, account, sortBy, onGetNFTs, onBrowse } = props
+    const { nfts, loading, size } = nfts_state
 
     useEffect(() => {
         onGetNFTs({

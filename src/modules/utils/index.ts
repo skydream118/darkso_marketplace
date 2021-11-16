@@ -38,7 +38,7 @@ export const buy_nft = (token_id: string, price: string) => {
 }
 export const enable_NftSale = (token_id: string, price: string) => {
     if(price && token_id){
-
+        
     }
     return {result: true, error : undefined}
 }

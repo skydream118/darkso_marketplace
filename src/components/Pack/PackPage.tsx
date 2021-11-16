@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 
@@ -12,6 +12,7 @@ import {
     Loader
 } from 'decentraland-ui'
 import useDarkso from '../../hook/useDarkso'
+import Darkso from '../../darkso'
 
 
 
@@ -27,12 +28,21 @@ const PackPage = (props: Props) => {
     const { connector, account, active } = context
     let isStart = false;
 
+    useEffect(()=>{
+        if(darkso){
+            const darksoNFT = darkso.contracts.getDarksoNFTContract()
+            darksoNFT.on("NewDARKToken",(receipt)=>{
+                console.log(receipt);
+            })
+        }
+    },[])
+
     const handleBuyPack = useCallback(
         () => {
             const connected = injected === connector;
             if (connected && active && account) {
                 isStart = true
-                onBuyPack(darkso)
+                onBuyPack(darkso as Darkso)
             } else {
                 alert("connect wallet")
             }

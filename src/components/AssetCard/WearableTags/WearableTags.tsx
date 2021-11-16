@@ -21,6 +21,7 @@ const WearableTags = (props: Props) => {
 
 
   const colorByType: color = {
+
     "hero": '#FFB626',
     "discipline": '#ED6D4F'
   }
